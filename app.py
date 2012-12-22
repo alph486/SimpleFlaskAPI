@@ -1,12 +1,16 @@
 # -*- coding: utf-8 *-*
-import os
+import os, logging
+from tasks import load_transactions
 from flask import Flask
 
 app = Flask(__name__)
+logging.basicConfig(level=logging.DEBUG)
 
 @app.route('/')
 def hello():
-    return 'Hello World!'
+    logging.debug("Call made!")
+    load_transactions.delay()
+
 
 if __name__ == '__main__':
     # Bind to PORT if defined, otherwise default to 5000.
