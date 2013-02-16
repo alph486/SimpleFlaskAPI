@@ -9,9 +9,9 @@ from pymongo import MongoClient
 import mechanize
 
 log = logging.getLogger(__name__)
-celery = Celery('tasks', broker='mongodb://appuser:r1RCkL2oCp@ds045757.mongolab.com:45757/heroku_app10285940')
-conn = MongoClient('mongodb://appuser:r1RCkL2oCp@ds045757.mongolab.com:45757/heroku_app10285940')
-db = conn.heroku_app10285940
+celery = Celery('tasks', broker='mongodb://')
+conn = MongoClient('mongodb://')
+db = #fill in
 transactions = db.Transactions
 
 @celery.task
